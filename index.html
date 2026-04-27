@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mamora – Zurück zu mir</title>
+    <link rel="icon" href="https://loupaai.lovable.app/loupa-favicon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E2D7C9',
+                        secondary: '#856A47',
+                        heading: '#864E41',
+                        body: '#F7F3EF',
+                    },
+                    fontFamily: {
+                        heading: ['"Inter"', 'Georgia', 'serif'],
+                        body: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #FFFFFF; }
+        h1, h2, h3, h4 { font-family: 'Inter', Georgia, serif; font-weight: 700; color: #864E41; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+    </style>
+</head>
+<body class="bg-white">
+
+<!-- ============================================ -->
+<!-- SECTION 1: HERO BANNER -->
+<!-- ============================================ -->
+<section class="w-full" style="background-color: #856A47;">
+    <div class="max-w-[1200px] mx-auto px-6 py-12 lg:py-20 lg:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <!-- Left Column - Product Image -->
+            <div class="relative">
+                <div class="rounded-2xl overflow-hidden">
+                    <img src="https://nyrslifytgbluamxpqzq.supabase.co/storage/v1/object/public/website-images/mamora/hero-image_1777314878886.png" alt="mamora Workbook" class="w-full object-cover rounded-2xl" style="aspect-ratio: 4/5;">
+                </div>
+                <div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-lg px-4 py-2 whitespace-nowrap" style="border: 2px dashed #864E41;">
+                    <span class="font-semibold text-sm" style="color: #864E41;">🚨 Nur noch für kurze Zeit verfügbar!</span>
+                </div>
+            </div>
+
+            <!-- Right Column - Content -->
+            <div class="flex flex-col justify-center mt-8 md:mt-0">
+                <!-- Star Rating -->
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="flex gap-0.5">
+                        <span class="text-xl" style="color: #f5a623;">★</span>
+                        <span class="text-xl" style="color: #f5a623;">★</span>
+                        <span class="text-xl" style="color: #f5a623;">★</span>
+                        <span class="text-xl" style="color: #f5a623;">★</span>
+                        <span class="text-xl" style="color: #f5a623;">★</span>
+                    </div>
+                    <span class="text-sm font-medium" style="color: #F7F3EF;">500+ begeisterte Mütter</span>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight mb-6" style="color: #F7F3EF;">
+                    Dein Weg <span style="color: #E2D7C9;">zurück</span><br>
+                    zu <span style="color: #E2D7C9;">dir selbst</span>
+                </h1>
+
+                <!-- Feature Badges -->
+                <div class="flex flex-wrap items-center gap-3 mb-6">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="10" fill="#E2D7C9"/>
+                            <path d="M6 10l3 3 5-5" stroke="#856A47" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="font-bold text-sm" style="color: #F7F3EF;">14 Tage Struktur</span>
+                    </div>
+                    <span class="text-gray-400">|</span>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="10" fill="#E2D7C9"/>
+                            <path d="M6 10l3 3 5-5" stroke="#856A47" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="font-bold text-sm" style="color: #F7F3EF;">Ohne Zeitdruck</span>
+                    </div>
+                    <span class="text-gray-400">|</span>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="10" fill="#E2D7C9"/>
+                            <path d="M6 10l3 3 5-5" stroke="#856A47" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="font-bold text-sm" style="color: #F7F3EF;">Sofort nutzbar</span>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <p class="text-base lg:text-lg font-normal leading-relaxed mb-8 max-w-lg" style="color: #F7F3EF;">
+                    Das 14-Tage Workbook für Mütter, die das Gefühl haben, nur noch zu funktionieren. Finde in kleinen, realistischen Momenten zurück zu dir – ohne zusätzlichen Druck.
+                </p>
+
+                <!-- CTA Button -->
+                <a href="https://mein-shop1016.tentary.com/p/sffj5F" class="inline-flex items-center justify-between rounded-xl px-8 py-4 w-full md:w-3/4 transition-all duration-300 hover:opacity-90" style="background-color: #E2D7C9;">
+                    <div>
+                        <div class="font-bold text-lg uppercase tracking-wide" style="color: #864E41;">Jetzt kaufen</div>
+                        <div class="text-sm font-normal" style="color: #856A47;">Nur $17.95 statt <span class="line-through">$22.95</span></div>
+                    </div>
+                    <span class="text-2xl" style="color: #864E41;">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 2: IMAGE WITH TEXT - BENTO GRID -->
+<!-- ============================================ -->
+<section class="w-full bg-white px-6 py-12 lg:px-12 lg:py-16">
+    <div class="max-w-[1400px] mx-auto">
+        <!-- Desktop Bento Grid -->
+        <div class="hidden lg:grid grid-cols-3 grid-rows-2 gap-3" style="min-height: 700px;">
+            <!-- Cell 1 - Top Left -->
+            <div class="p-8 lg:p-12 flex flex-col justify-center" style="background-color: #E2D7C9; min-height: 350px;">
+                <h2 class="font-bold text-2xl lg:text-3xl mb-4" style="color: #864E41;">Tägliche Textmeditation</h2>
+                <p class="text-base leading-relaxed" style="color: #856A47;">Jeder der 14 Tage beginnt mit einer kurzen, beruhigenden Textmeditation – geschrieben für Mütter, die keine Stille brauchen, sondern Worte, die sie halten.</p>
+            </div>
+
+            <!-- Cell 2 - Top Center -->
+            <div class="p-8 lg:p-12 flex flex-col justify-center" style="background-color: #856A47; min-height: 350px;">
+                <h2 class="font-bold text-2xl lg:text-3xl mb-4" style="color: #F7F3EF;">Kreative Challenges</h2>
+                <p class="text-base leading-relaxed" style="color: #E2D7C9;">Kleine kreative Aufgaben, die sich in deinen Alltag einweben lassen – zwischen Frühstückstisch und Einschlafbegleitung. Kein Perfektionismus nötig.</p>
+            </div>
+
+            <!-- Cell 3 - Right Column (row-span-2) -->
+            <div class="row-span-2">
+                <img src="https://nyrslifytgbluamxpqzq.supabase.co/storage/v1/object/public/website-images/mamora/cell3_image_1777314878886.png" alt="Mutter beim Reflektieren" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Cell 4 - Bottom Left -->
+            <div style="min-height: 350px;">
+                <img src="https://nyrslifytgbluamxpqzq.supabase.co/storage/v1/object/public/website-images/mamora/cell4_image_1777314878886.png" alt="Reflektionsmoment im Workbook" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Cell 5 - Bottom Center -->
+            <div class="p-8 lg:p-12 flex flex-col justify-center" style="background-color: #864E41; min-height: 350px;">
+                <h2 class="font-bold text-2xl lg:text-3xl mb-4" style="color: #F7F3EF;">Notfall-Reset Seiten</h2>
+                <p class="text-base leading-relaxed" style="color: #E2D7C9;">Für die Tage, an denen nichts geht: 3 Notfall-Seiten mit sofort wirksamen Übungen. Weil Selbstfürsorge manchmal nur 2 Minuten braucht.</p>
+            </div>
+        </div>
+
+        <!-- Tablet Grid -->
+        <div class="hidden md:grid lg:hidden grid-cols-2 gap-3">
+            <div class="p-8 flex flex-col justify-center" style="background-color: #E2D7C9; min-height: 300px;">
+                <h2 class="font-bold text-2xl mb-4" style="color: #864E41;">Tägliche Textmeditation</h2>
+                <p class="text-base leading-relaxed" style="color: #856A47;">Jeder der 14 Tage beginnt mit einer kurzen, beruhigenden Textmeditation – geschrieben für Mütter, die keine Stille brauchen, sondern Worte, die sie halten.</p>
+            </div>
+            <div class="row-span-2">
+                <img src="https://nyrslifytgbluamxpqzq.supabase.co/storage/v1/object/public/website-images/mamora/cell3_image_1777314878886.png" alt="Mutter beim Reflektieren" class="w-full h-full object-cover" style="min-height: 600px;">
+            </div>
+            <div class="p-8 flex flex-col justify-center" style="background-color: #856A47; min-height: 300px;">
+                <h2 class="font-bold text-2xl mb-4" style="color: #F7F3EF;">Kreative Challenges</h2>
+                <p class="text-base leading-relaxed" style="color: #E2D7C9;">Kleine kreative Aufgaben, die sich in deinen Alltag einweben lassen – zwischen Frühstückstisch und Einschlafbegleitung.</p>
+            </div>
+            <div>
+                <img src="https://nyrslifytgbluamxpqzq.supabase.co/storage/v1/object/public/website-images/mamora/cell4_image_1777314878886.png" alt="Reflektionsmoment" class="w-full h-full object-cover" style="min-height: 280px;">
+            </div>
+            <div class="p-8 flex flex-col justify-center col-span-2" style="background-color: #864E41; min-height: 280px;">
+                <h2 class="font-bold text-2xl mb-4" style="color: #F7F3EF;">Notfall-Reset Seiten</h2>
+                <p class="text-base leading-relaxed" style="color: #E2D7C9;">Für die Tage, an denen nichts geht: 3 Notfall-Seiten mit sofort wirksamen Übungen. Weil Selbstfürsorge manchmal nur 2 Minuten braucht.</p>
+            </div>
+        </div>
+
+        <!-- Mobile Stack -->
+        <div class="grid md:hidden grid-cols-1 gap-3">
+            <div class="p-8 flex flex-col justify-center" style="background-color: #E2D7C9; min-height: 280px;">
+                <h2 class="font-bold text-2xl mb-4" style="color: #864E41;">Tägliche Textmeditation</h2>
+                <p class="text-base leading-relaxed" style="color: #856A47;">Jeder der 14 Tage beginnt mit einer kurzen, beruhigenden Textmeditation – geschrieben für Mütter, die keine Stille brauchen, sondern Worte, die sie halten.</p>
+            </div>
+            <div class="p-8 flex flex-col justify-center" style="background-color: #856A47; min-height: 280px;">
+                <h2 class="font-bold text-2xl mb-4" style="color: #F7F3EF;">Kreative Challenges</h2>
+                <p class="text-base leading-relaxed" style="color: #E2D7C9;">Kleine kreative Aufgaben, die sich in deinen Alltag einweben lassen – zwischen Frühstückstisch und Einschlafbegleitung.</p>
+            </div>
+            <div style="min-height: 300px;">
+                <img src="https://nyrslifytgbluamxpqzq.supabase.co/storage/v1/object/public/website-images/mamora/cell3_image_1777314878886.png" alt="Mutter beim Reflektieren" class="w-full h-full object-cover">
+            </div>
+            <div style="min-height: 280px;">
+                <img src="https://nyrslifytgbluamxpqzq.supabase.co/storage/v1/object/public/website-images/mamora/cell4_image_1777314878886.png" alt="Reflektionsmoment" class="w-full h-full object-cover">
+            </div>
+            <div class="p-8 flex flex-col justify-center" style="background-color: #864E41; min-height: 280px;">
+                <h2 class="font-bold text-2xl mb-4" style="color: #F7F3EF;">Notfall-Reset Seiten</h2>
+                <p class="text-base leading-relaxed" style="color: #E2D7C9;">Für die Tage, an denen nichts geht: 3 Notfall-Seiten mit sofort wirksamen Übungen. Weil Selbstfürsorge manchmal nur 2 Minuten braucht.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 3: FEATURED PRODUCT -->
+<!-- ============================================ -->
+<section class="w-full" style="background-color: #F7F3EF;">
+    <div class="max-w-[1200px] mx-auto px-5 py-10 lg:px-10 lg:py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 items-center">
+            <!-- Left Column - Product Image -->
+            <div class="flex justify-center">
+                <div class="w-full max-w-[630px] aspect-square">
+                    <img src="https://nyrslifytgbluamxpqzq.supabase.co/storage/v1/object/public/website-images/mamora/product-image_1777314878886.png" alt="mamora Workbook – Zurück zu mir" class="w-full h-full object-cover rounded-xl" style="border: 1px solid #E2D7C9;">
+                </div>
+            </div>
+
+            <!-- Right Column - Product Details -->
+            <div class="flex flex-col">
+                <!-- Social Proof Banner -->
+                <div class="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-4 self-start" style="background-color: #E2D7C9;">
+                    <div class="flex -space-x-2">
+                        <div class="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-xs font-bold" style="background-color: #864E41; color: #F7F3EF;">S</div>
+                        <div class="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-xs font-bold" style="background-color: #856A47; color: #F7F3EF;">M</div>
+                        <div class="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-xs font-bold" style="background-color: #E2D7C9; color: #864E41;">L</div>
+                    </div>
+                    <span class="text-sm" style="color: #864E41;"><strong>Sarah</strong> <svg class="inline w-4 h-4" viewBox="0 0 20 20" fill="#856A47"><path d="M10 0l2.5 6.5H19l-5.3 3.8 2 6.5L10 13l-5.7 3.8 2-6.5L1 6.5h6.5z"/></svg>, <strong>Maria</strong> <svg class="inline w-4 h-4" viewBox="0 0 20 20" fill="#856A47"><path d="M10 0l2.5 6.5H19l-5.3 3.8 2 6.5L10 13l-5.7 3.8 2-6.5L1 6.5h6.5z"/></svg> und 500+ weitere lieben es!</span>
+                </div>
+
+                <!-- Product Title -->
+                <h2 class="text-3xl lg:text-4xl font-extrabold mt-2" style="color: #864E41;">Zurück zu mir – Das 14-Tage Workbook</h2>
+
+                <!-- Price -->
+                <div class="mt-3 flex items-center gap-3">
+                    <span class="text-xl font-bold" style="color: #864E41;">$17.95 USD</span>
+                    <span class="text-lg line-through" style="color: #856A47; opacity: 0.6;">$22.95 USD</span>
+                    <span class="text-sm font-semibold px-2 py-1 rounded" style="background-color: #864E41; color: #F7F3EF;">-22%</span>
+                </div>
+
+                <!-- Stock Status -->
+                <div class="mt-4 rounded-full px-4 py-3 flex items-center gap-2" style="background-color: #E2D7C9;">
+                    <span class="w-2 h-2 rounded-full" style="background-color: #856A47;"></span>
+                    <span class="text-sm font-medium" style="color: #856A47;">Sofort verfügbar – Direkter Download</span>
+                </div>
+
+                <!-- Feature Checklist -->
+                <div class="mt-5 space-y-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: #856A47;">
+                            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="#F7F3EF" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <span class="text-base" style="color: #864E41;">14 strukturierte Tage mit Meditation, Challenge & Reflexion</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: #856A47;">
+                            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="#F7F3EF" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <span class="text-base" style="color: #864E41;">8 Ideen zur Kinderbeschäftigung inklusive</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: #856A47;">
+                            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="#F7F3EF" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <span class="text-base" style="color: #864E41;">6 Abendroutinen zum Runterkommen</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0" style="background-color: #856A47;">
+                            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="#F7F3EF" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <span class="text-base" style="color: #864E41;">+500 Mütter haben den Weg zurück gefunden</span>
+                    </div>
+                </div>
+
+                <!-- Countdown Timer -->
+                <div class="mt-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm" style="color: #856A47;">Angebot endet in:</span>
+                        <span class="text-xl font-bold" id="countdown-timer" style="color: #864E41;">45:49</span>
+                    </div>
+                    <div class="w-full h-2 rounded-full" style="background-color: #E2D7C9;">
+                        <div class="h-2 rounded-full transition-all duration-1000" id="progress-bar" style="background-color: #856A47; width: 75%;"></div>
+                    </div>
+                </div>
+
+                <!-- Buy Now Button -->
+                <a href="https://mein-shop1016.tentary.com/p/sffj5F" class="mt-5 w-full block text-center rounded-xl py-4 font-semibold text-lg transition-all duration-300 hover:opacity-90" style="background-color: #864E41; color: #F7F3EF;">
+                    Jetzt kaufen
+                </a>
+
+                <!-- Payment Icons -->
+                <div class="mt-4 flex items-center justify-center gap-3 flex-wrap">
+                    <div class="px-3 py-1.5 rounded-md border text-xs font-semibold" style="border-color: #E2D7C9; color: #856A47;">VISA</div>
+                    <div class="px-3 py-1.5 rounded-md border text-xs font-semibold" style="border-color: #E2D7C9; color: #856A47;">Mastercard</div>
+                    <div class="px-3 py-1.5 rounded-md border text-xs font-semibold" style="border-color: #E2D7C9; color: #856A47;">PayPal</div>
+                    <div class="px-3 py-1.5 rounded-md border text-xs font-semibold" style="border-color: #E2D7C9; color: #856A47;">Apple Pay</div>
+                    <div class="px-3 py-1.5 rounded-md border text-xs font-semibold" style="border-color: #E2D7C9; color: #856A47;">Google Pay</div>
+                </div>
+
+                <!-- Product Description -->
+                <p class="mt-5 text-base leading-relaxed" style="color: #856A47;">
+                    „Zurück zu mir" ist ein 14-Tage-Workbook, das speziell für Mütter entwickelt wurde, die vieles alleine schultern. Mit täglichen Textmeditationen, kreativen Mini-Challenges und Reflexionsfragen findest du in kleinen, realistischen Momenten wieder zu dir selbst – ohne Druck, ohne Perfektion.
+                </p>
+
+                <!-- Feature Highlights Bar -->
+                <div class="mt-4 rounded-xl p-4 flex items-center justify-between" style="border: 1px solid #E2D7C9;">
+                    <div class="flex flex-col items-center text-center flex-1">
+                        <span class="text-2xl mb-1">🧘</span>
+                        <span class="font-bold text-sm" style="color: #864E41;">14 Tage</span>
+                        <span class="text-xs" style="color: #856A47;">Struktur</span>
+                    </div>
+                    <div class="w-px h-10" style="background-color: #E2D7C9;"></div>
+                    <div class="flex flex-col items-center text-center flex-1">
+                        <span class="text-2xl mb-1">📖</span>
+                        <span class="font-bold text-sm" style="color: #864E41;">Druckbar</span>
+                        <span class="text-xs" style="color: #856A47;">oder digital</span>
+                    </div>
+                    <div class="w-px h-10" style="background-color: #E2D7C9;"></div>
+                    <div class="flex flex-col items-center text-center flex-1">
+                        <span class="text-2xl mb-1">💫</span>
+                        <span class="font-bold text-sm" style="color: #864E41;">3 Bonus</span>
+                        <span class="text-xs" style="color: #856A47;">Bereiche</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+(function() {
+    let totalSeconds = 45 * 60 + 49;
+    const timerEl = document.getElementById('countdown-timer');
+    const progressBar = document.getElementById('progress-bar');
+    const totalStart = 45 * 60 + 49;
+    
+    function updateTimer() {
+        if (totalSeconds <= 0) {
+            timerEl.textContent = '00:00';
+            progressBar.style.width = '0%';
+            return;
+        }
+        totalSeconds--;
+        const mins = Math.floor(totalSeconds / 60);
+        const secs = totalSeconds % 60;
+        timerEl.textContent = String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+        progressBar.style.width = ((totalSeconds / totalStart) * 100) + '%';
+    }
+    setInterval(updateTimer, 1000);
+})();
+</script>
+
+<!-- ============================================ -->
+<!-- SECTION 4: BEFORE & AFTER -->
+<!-- ============================================ -->
+<section class="w-full" style="background-color: #E2D7C9;">
+    <div class="max-w-[1400px] mx-auto px-5 pt-10 pb-12 lg:px-16 lg:pt-20 lg:pb-24">
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+            <!-- Left Column - Overlapping Images -->
+            <div class="relative w-full lg:w-[45%] flex justify-center" style="min-height: 380px;">
+                <!-- Before Image -->
+                <div class="relative" style="z-index: 1;">
+                    <div class="relative">
+                        <span class="absolute -top-8 right-0 font-serif italic text-lg lg:text-2xl" style="color: #864E41; z-index: 10;">vorher
+                            <svg class="absolute top-6 left-1/2 w-8 h-8" viewBox="0 0 40 40" fill="none" style="z-index:10;">
+                                <path d="M20 5 C15 15, 10 25, 18 35" stroke="#864E41" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <path d="M14 30 L18 35 L22 30" stroke="#864E41" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        <img src="https://nyrslifytgbluamxpqzq.supabase.co/storage/v1/object/public/website-images/mamora/before_image_1777314878886.png" alt="Vorher – erschöpfte Mutter" class="w-[200px] lg:w-[320px] object-cover rounded-2xl shadow-lg" style="transform: rotate(-5deg); aspect-ratio: 3/4;">
+                    </div>
+                </div>
+
+                <!-- After Image -->
+                <div class="relative -ml-8 lg:-ml-12 mt-8 lg:mt-12" style="z-index: 2;">
+                    <div class="relative">
+                        <img src="https://nyrslifytgbluamxpqzq.supabase.co/storage/v1/object/public/website-images/mamora/after_image_1777314878886.png" alt="Nachher – verbundene Mutter" class="w-[220px] lg:w-[350px] object-cover rounded-2xl shadow-lg" style="transform: rotate(3deg); aspect-ratio: 3/4;">
+                        <span class="absolute -bottom-8 left-0 font-serif italic text-lg lg:text-2xl" style="color: #856A47; z-index: 10;">nachher
+                            <svg class="absolute -top-8 left-1/2 w-8 h-8 transform rotate-180" viewBox="0 0 40 40" fill="none" style="z-index:10;">
+                                <path d="M20 5 C15 15, 10 25, 18 35" stroke="#856A47" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <path d="M14 30 L18 35 L22 30" stroke="#856A47" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Testimonial -->
+            <div class="w-full lg:w-[55%] text-center lg:text-left mt-12 lg:mt-0">
+                <h2 class="font-extrabold text-3xl lg:text-5xl leading-tight mb-6" style="color: #864E41;">
+                    Ja, wirklich.<br>Es verändert alles.
+                </h2>
+
+                <!-- Stars -->
+                <div class="flex gap-1 mb-6 justify-center lg:justify-start">
+                    <span class="text-2xl" style="color: #856A47;">★</span>
+                    <span class="text-2xl" style="color: #856A47;">★</span>
+                    <span class="text-2xl" style="color: #856A47;">★</span>
+                    <span class="text-2xl" style="color: #856A47;">★</span>
+                    <span class="text-2xl" style="color: #856A47;">★</span>
+                </div>
+
+                <p class="text-base lg:text-lg font-normal leading-relaxed max-w-[520px] mx-auto lg:mx-0" style="color: #856A47;">
+                    „Ich hätte nie gedacht, dass ein Workbook so viel bewirken kann. Schon nach der ersten Woche habe ich gemerkt, dass ich mich selbst wieder spüre. Die kleinen Momente am Tag, nur für mich – sie haben alles verändert. Ich bin immer noch alleinerziehend, der Alltag ist immer noch voll. Aber ich bin nicht mehr verloren darin."
+                </p>
+                <p class="mt-4 font-bold" style="color: #864E41;">– Katrin, Mama von zwei Kindern</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 5: STATISTICS / SOCIAL PROOF -->
+<!-- ============================================ -->
+<section class="w-full" style="background-color: #F7F3EF;">
+    <div class="max-w-[1400px] mx-auto px-5 py-10 lg:px-10 lg:py-16">
+        <!-- Section Label -->
+        <p class="uppercase tracking-widest text-xs font-semibold mb-10" style="color: #864E41; letter-spacing: 3px;">DER UNTERSCHIED</p>
+
+        <!-- Stats Row -->
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between">
+            <!-- Stat 1 -->
+            <div class="flex items-center gap-4 lg:gap-6 py-6 md:py-0 flex-1">
+                <span class="font-bold leading-none font-serif text-4xl lg:text-6xl" style="color: #864E41;" aria-label="94%">
+                    <span class="stat-number" data-target="94">0</span>%
+                </span>
+                <p class="text-sm lg:text-base font-normal leading-relaxed max-w-[220px]" style="color: #856A47;">
+                    fühlen sich nach 14 Tagen wieder mehr mit sich selbst verbunden.
+                </p>
+            </div>
+
+            <!-- Divider -->
+            <div class="hidden md:block w-px h-20 mx-6 lg:mx-10" style="background-color: #856A47;"></div>
+            <div class="md:hidden w-4/5 h-px my-2" style="background-color: #856A47;"></div>
+
+            <!-- Stat 2 -->
+            <div class="flex items-center gap-4 lg:gap-6 py-6 md:py-0 flex-1">
+                <span class="font-bold leading-none font-serif text-4xl lg:text-6xl" style="color: #864E41;" aria-label="88%">
+                    <span class="stat-number" data-target="88">0</span>%
+                </span>
+                <p class="text-sm lg:text-base font-normal leading-relaxed max-w-[220px]" style="color: #856A47;">
+                    sagen, dass die täglichen Übungen ohne Zusatzstress in ihren Alltag passten.
+                </p>
+            </div>
+
+            <!-- Divider -->
+            <div class="hidden md:block w-px h-20 mx-6 lg:mx-10" style="background-color: #856A47;"></div>
+            <div class="md:hidden w-4/5 h-px my-2" style="background-color: #856A47;"></div>
+
+            <!-- Stat 3 -->
+            <div class="flex items-center gap-4 lg:gap-6 py-6 md:py-0 flex-1">
+                <span class="font-bold leading-none font-serif text-4xl lg:text-6xl" style="color: #864E41;" aria-label="96%">
+                    <span class="stat-number" data-target="96">0</span>%
+                </span>
+                <p class="text-sm lg:text-base font-normal leading-relaxed max-w-[220px]" style="color: #856A47;">
+                    würden das Workbook anderen Müttern weiterempfehlen.
+                </p>
+            </div>
+        </div>
+
+        <!-- Footnote -->
+        <p class="mt-10 text-xs font-normal" style="color: #856A47;">
+            *Basierend auf einer Umfrage unter 500+ Nutzerinnen zur selbstberichteten Wirksamkeit.
+        </p>
+    </div>
+</section>
+
+<script>
+(function() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let animated = false;
+
+    function animateCountUp(el, target, duration) {
+        const start = performance.now();
+        function update(currentTime) {
+            const elapsed = currentTime - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.floor(eased * target);
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                el.textContent = target;
+            }
+        }
+        requestAnimationFrame(update);
+    }
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                statNumbers.forEach(function(el) {
+                    const target = parseInt(el.getAttribute('data-target'));
+                    animateCountUp(el, target, 2000);
+                });
+            }
+        });
+    }, { threshold: 0.2 });
+
+    const statsSection = document.querySelector('.stat-number');
+    if (statsSection) {
+        observer.observe(statsSection.closest('section'));
+    }
+})();
+</script>
+
+<!-- ============================================ -->
+<!-- SECTION 6: IMAGE WITH TEXT -->
+<!-- ============================================ -->
+<section class="w-full bg-white py-10 px-6 lg:py-16 lg:px-12">
+    <div class="max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+        <!-- Left Column - Image -->
+        <div class="w-full lg:w-[55%]">
+            <img src="https://nyrslifytgbluamxpqzq.supabase.co/storage/v1/object/public/website-images/mamora/lifestyle_image_1777314878886.png" alt="Dein persönlicher Moment der Ruhe" class="w-full object-cover rounded-2xl" style="min-height: 500px;" loading="lazy">
+        </div>
+
+        <!-- Right Column - Text -->
+        <div class="w-full lg:w-[45%] flex flex-col justify-center">
+            <h2 class="font-black text-3xl md:text-4xl lg:text-5xl leading-tight mb-6" style="color: #864E41;">
+                Dein Moment.<br>Jeden Tag.
+            </h2>
+            <p class="text-base lg:text-lg font-normal leading-relaxed max-w-[480px]" style="color: #856A47;">
+                Du brauchst keine Stunde Auszeit, keinen perfekten Plan und keinen freien Abend. „Zurück zu mir" gibt dir die Struktur, kleine Momente in deinem bestehenden Alltag zu finden – Momente, die nur dir gehören. 14 Tage lang, Schritt für Schritt, mit Textmeditationen, kreativen Impulsen und Fragen, die dich sanft zurück zu dir selbst führen.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 7: FAQ -->
+<!-- ============================================ -->
+<section class="w-full bg-white py-10 px-4 lg:py-20 lg:px-5">
+    <div class="max-w-[1200px] mx-auto">
+        <!-- Heading -->
+        <h2 class="text-center font-normal text-3xl lg:text-5xl mb-10 lg:mb-14 font-serif" style="color: #864E41;">
+            Häufige Fragen
+        </h2>
+
+        <!-- FAQ Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0">
+            <!-- Left Column -->
+            <div>
+                <!-- FAQ 1 -->
+                <div class="faq-item cursor-pointer py-6" style="border-bottom: 1px solid #E2D7C9;" onclick="toggleFaq(this)">
+                    <div class="flex items-center justify-between">
+                        <span class="flex-1 pr-4 text-base lg:text-lg font-normal leading-relaxed" style="color: #856A47;">Wie bekomme ich das Workbook nach dem Kauf?</span>
+                        <span class="faq-icon text-xl flex-shrink-0 font-light" style="color: #856A47;">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-sm leading-relaxed pb-4 pt-3" style="color: #856A47;">Nach dem Kauf erhältst du sofort eine E-Mail mit dem Download-Link. Du kannst das Workbook als PDF herunterladen und entweder digital nutzen oder auf deinem Drucker ausdrucken.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item cursor-pointer py-6" style="border-bottom: 1px solid #E2D7C9;" onclick="toggleFaq(this)">
+                    <div class="flex items-center justify-between">
+                        <span class="flex-1 pr-4 text-base lg:text-lg font-normal leading-relaxed" style="color: #856A47;">Brauche ich viel Zeit für die täglichen Übungen?</span>
+                        <span class="faq-icon text-xl flex-shrink-0 font-light" style="color: #856A47;">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-sm leading-relaxed pb-4 pt-3" style="color: #856A47;">Nein! Jeder Tag ist so gestaltet, dass du nur 10–15 Minuten brauchst. Die Übungen lassen sich flexibel in deinen bestehenden Alltag integrieren – ob morgens beim Kaffee oder abends, wenn die Kinder schlafen.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item cursor-pointer py-6" style="border-bottom: 1px solid #E2D7C9;" onclick="toggleFaq(this)">
+                    <div class="flex items-center justify-between">
+                        <span class="flex-1 pr-4 text-base lg:text-lg font-normal leading-relaxed" style="color: #856A47;">Was ist, wenn ich einen Tag auslasse?</span>
+                        <span class="faq-icon text-xl flex-shrink-0 font-light" style="color: #856A47;">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-sm leading-relaxed pb-4 pt-3" style="color: #856A47;">Kein Problem! Das Workbook ist bewusst ohne Druck gestaltet. Du kannst jederzeit dort weitermachen, wo du aufgehört hast. Es geht nicht um Perfektion, sondern um kleine Schritte zurück zu dir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div>
+                <!-- FAQ 4 -->
+                <div class="faq-item cursor-pointer py-6" style="border-bottom: 1px solid #E2D7C9;" onclick="toggleFaq(this)">
+                    <div class="flex items-center justify-between">
+                        <span class="flex-1 pr-4 text-base lg:text-lg font-normal leading-relaxed" style="color: #856A47;">Ist das Workbook nur für alleinerziehende Mütter?</span>
+                        <span class="faq-icon text-xl flex-shrink-0 font-light" style="color: #856A47;">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-sm leading-relaxed pb-4 pt-3" style="color: #856A47;">Nein, es ist für alle Mütter, die das Gefühl haben, sich selbst aus den Augen verloren zu haben. Besonders profitieren Mütter, die viel alleine schultern – ob alleinerziehend oder nicht.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item cursor-pointer py-6" style="border-bottom: 1px solid #E2D7C9;" onclick="toggleFaq(this)">
+                    <div class="flex items-center justify-between">
+                        <span class="flex-1 pr-4 text-base lg:text-lg font-normal leading-relaxed" style="color: #856A47;">Was sind die Notfall-Reset Seiten?</span>
+                        <span class="faq-icon text-xl flex-shrink-0 font-light" style="color: #856A47;">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-sm leading-relaxed pb-4 pt-3" style="color: #856A47;">Das sind 3 spezielle Seiten für besonders schwierige Tage. Sie enthalten sofort wirksame 2-Minuten-Übungen, die dir helfen, dich schnell zu erden und wieder Kraft zu tanken – ohne Vorbereitung.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item cursor-pointer py-6" style="border-bottom: 1px solid #E2D7C9;" onclick="toggleFaq(this)">
+                    <div class="flex items-center justify-between">
+                        <span class="flex-1 pr-4 text-base lg:text-lg font-normal leading-relaxed" style="color: #856A47;">Kann ich das Workbook auch auf dem Tablet nutzen?</span>
+                        <span class="faq-icon text-xl flex-shrink-0 font-light" style="color: #856A47;">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-sm leading-relaxed pb-4 pt-3" style="color: #856A47;">Ja! Du erhältst eine PDF-Datei, die du auf jedem Gerät öffnen kannst – Tablet, Laptop oder Smartphone. Alternativ druckst du sie einfach aus und nutzt sie als physisches Workbook.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function toggleFaq(item) {
+    const allItems = document.querySelectorAll('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const icon = item.querySelector('.faq-icon');
+    const isActive = item.classList.contains('active');
+
+    // Close all
+    allItems.forEach(function(faqItem) {
+        faqItem.classList.remove('active');
+        const a = faqItem.querySelector('.faq-answer');
+        const i = faqItem.querySelector('.faq-icon');
+        a.style.maxHeight = '0px';
+        i.style.transform = 'rotate(0deg)';
+    });
+
+    // Open clicked if it wasn't active
+    if (!isActive) {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.style.transform = 'rotate(45deg)';
+    }
+}
+</script>
+
+<!-- ============================================ -->
+<!-- SECTION 8: TESTIMONIALS CAROUSEL -->
+<!-- ============================================ -->
+<section class="w-full" style="background-color: #F7F3EF;">
+    <div class="max-w-[1200px] mx-auto py-10 px-5 lg:py-20 lg:px-6">
+        <!-- Heading -->
+        <h2 class="text-center font-bold text-3xl lg:text-[40px] mb-12" style="color: #864E41;">
+            Was andere Mütter sagen
+        </h2>
+
+        <!-- Carousel Container -->
+        <div class="relative">
+            <!-- Cards Container -->
+            <div id="testimonial-track" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-500">
+                <!-- Card 1 -->
+                <div class="testimonial-card bg-white border-2 px-8 py-10 text-center flex flex-col items-center" style="border-color: #864E41;" data-group="0">
+                    <div class="flex gap-0.5 mb-5">
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                    </div>
+                    <p class="text-base leading-relaxed mb-6 flex-1" style="color: #856A47;">„Endlich etwas, das mich nicht überfordert. Die kleinen Übungen passen perfekt in meinen Alltag mit zwei Kindern. Ich fühle mich wieder wie ich selbst."</p>
+                    <p class="font-bold text-base" style="color: #864E41;">Lisa M.</p>
+                    <p class="text-sm font-normal" style="color: #856A47;">Alleinerziehende Mama, 2 Kinder</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="testimonial-card bg-white border-2 px-8 py-10 text-center flex flex-col items-center" style="border-color: #864E41;" data-group="0">
+                    <div class="flex gap-0.5 mb-5">
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                    </div>
+                    <p class="text-base leading-relaxed mb-6 flex-1" style="color: #856A47;">„Die Textmeditationen haben mich so berührt. Es fühlt sich an, als hätte jemand genau verstanden, was in mir vorgeht. Dieses Workbook war das Beste, was ich für mich getan habe."</p>
+                    <p class="font-bold text-base" style="color: #864E41;">Sandra K.</p>
+                    <p class="text-sm font-normal" style="color: #856A47;">Mama von einem Kleinkind</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="testimonial-card bg-white border-2 px-8 py-10 text-center flex flex-col items-center" style="border-color: #864E41;" data-group="0">
+                    <div class="flex gap-0.5 mb-5">
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                    </div>
+                    <p class="text-base leading-relaxed mb-6 flex-1" style="color: #856A47;">„Die Notfall-Reset Seiten haben mir an einem besonders harten Tag so geholfen. In nur 2 Minuten war ich wieder geerdet. Dieses Workbook versteht den Mama-Alltag wirklich."</p>
+                    <p class="font-bold text-base" style="color: #864E41;">Julia W.</p>
+                    <p class="text-sm font-normal" style="color: #856A47;">Alleinerziehend, 3 Kinder</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="testimonial-card bg-white border-2 px-8 py-10 text-center flex flex-col items-center hidden" style="border-color: #864E41;" data-group="1">
+                    <div class="flex gap-0.5 mb-5">
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                    </div>
+                    <p class="text-base leading-relaxed mb-6 flex-1" style="color: #856A47;">„Ich war skeptisch – noch ein weiteres Selbsthilfe-Ding. Aber dieses Workbook ist anders. Es fordert nichts Unmögliches, sondern holt dich genau da ab, wo du bist. Wunderbar."</p>
+                    <p class="font-bold text-base" style="color: #864E41;">Nadine B.</p>
+                    <p class="text-sm font-normal" style="color: #856A47;">Berufstätige Mama, 1 Kind</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="testimonial-card bg-white border-2 px-8 py-10 text-center flex flex-col items-center hidden" style="border-color: #864E41;" data-group="1">
+                    <div class="flex gap-0.5 mb-5">
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                    </div>
+                    <p class="text-base leading-relaxed mb-6 flex-1" style="color: #856A47;">„Die kreativen Challenges waren mein Highlight! Ich habe gemerkt, wie viel Freude mir kleine kreative Momente bringen – etwas, das ich jahrelang vergessen hatte."</p>
+                    <p class="font-bold text-base" style="color: #864E41;">Melanie F.</p>
+                    <p class="text-sm font-normal" style="color: #856A47;">Alleinerziehende Mama, 2 Kinder</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="testimonial-card bg-white border-2 px-8 py-10 text-center flex flex-col items-center hidden" style="border-color: #864E41;" data-group="1">
+                    <div class="flex gap-0.5 mb-5">
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                        <span class="text-xl" style="color: #864E41;">★</span>
+                    </div>
+                    <p class="text-base leading-relaxed mb-6 flex-1" style="color: #856A47;">„Die Abendroutinen sind Gold wert. Nach Monaten des Nicht-zur-Ruhe-Kommens habe ich endlich einen Weg gefunden, meinen Tag friedlich abzuschließen. Danke, mamora!"</p>
+                    <p class="font-bold text-base" style="color: #864E41;">Tanja R.</p>
+                    <p class="text-sm font-normal" style="color: #856A47;">Mama von Zwillingen</p>
+                </div>
+            </div>
+
+            <!-- Navigation Arrows -->
+            <div class="flex justify-center items-center gap-4 mt-10">
+                <button id="prev-btn" onclick="changeTestimonialPage(-1)" class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:opacity-80" style="background-color: #E2D7C9; color: #864E41;">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+
+                <!-- Dots -->
+                <div class="flex gap-2" id="testimonial-dots">
+                    <span class="w-2.5 h-2.5 rounded-full cursor-pointer" style="background-color: #864E41;" data-dot="0" onclick="goToTestimonialPage(0)"></span>
+                    <span class="w-2.5 h-2.5 rounded-full cursor-pointer" style="background-color: #E2D7C9;" data-dot="1" onclick="goToTestimonialPage(1)"></span>
+                </div>
+
+                <button id="next-btn" onclick="changeTestimonialPage(1)" class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:opacity-80" style="background-color: #E2D7C9; color: #864E41;">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+(function() {
+    let currentPage = 0;
+    const totalPages = 2;
+
+    window.changeTestimonialPage = function(dir) {
+        currentPage += dir;
+        if (currentPage < 0) currentPage = totalPages - 1;
+        if (currentPage >= totalPages) currentPage = 0;
+        updateTestimonials();
+    };
+
+    window.goToTestimonialPage = function(page) {
+        currentPage = page;
+        updateTestimonials();
+    };
+
+    function updateTestimonials() {
+        const cards = document.querySelectorAll('.testimonial-card');
+        cards.forEach(function(card) {
+            const group = parseInt(card.getAttribute('data-group'));
+            if (group === currentPage) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        const dots = document.querySelectorAll('#testimonial-dots span');
+        dots.forEach(function(dot, index) {
+            if (index === currentPage) {
+                dot.style.backgroundColor = '#864E41';
+            } else {
+                dot.style.backgroundColor = '#E2D7C9';
+            }
+        });
+    }
+})();
+</script>
+
+</body>
+</html>
